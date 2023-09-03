@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: frontend-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: node-frontend
+      app: node-fe
   template:
     metadata:
       labels:
-        app: node-frontend
+        app: node-fe
     spec:
       containers:
       - name: frontend
-        image: omarkamals/frontend
+        image: zakydockerized/zaky-repo:frontend
         imagePullPolicy: Always
         ports:
         - containerPort: 80
