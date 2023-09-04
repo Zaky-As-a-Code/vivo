@@ -4,11 +4,11 @@ ENV  API_URL=http://backendsvc:3030
 WORKDIR  /vivo/frontend
 #RUN npm install
 #RUN npm run build
-COPY collection-fe .
+COPY . .
 
 FROM nginx
 WORKDIR /usr/share/nginx/html
-COPY --from=Build vivo/frontend/collection-fe .
+COPY --from=Build vivo/frontend/* .
 
 
 
