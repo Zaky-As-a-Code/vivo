@@ -1,0 +1,39 @@
+pipeline {
+    agent {
+        kubernetes {
+            // specify the pod template to use for the build agent
+            yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-build-agent
+spec:
+  containers:
+  - name: ubuntu
+    image: ubuntu:latest
+    command: ["cat"]
+    tty: true
+  - name: docker-cli
+    image: docker:cli
+    command: ["cat"]
+    tty: true
+    volumeMounts:
+    - name: docker-sock
+      mountPath: /var/run/docker.sock
+  volumes:
+  - name: docker-sock
+    hostPath:
+      path: /var/run/docker.sock
+"""
+        }
+    }
+    stages {
+        stage('Run kubectl command') {
+            steps {
+                container('k8s') {
+                    sh 'kubectl get pods'
+                }
+            }
+        }
+    }
+}
