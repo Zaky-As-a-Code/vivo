@@ -4,11 +4,11 @@ RUN git clone https://github.com/devops-user22/DevOps-proj.git
 WORKDIR  /vivo/frontend
 #RUN npm install
 #RUN npm run build
-COPY dist .
+COPY collection-fe .
 
 FROM nginx
 WORKDIR /usr/share/nginx/html
-COPY --from=Build vivo/frontend/dist .
+COPY --from=Build vivo/frontend/collection-fe .
 
 
 
