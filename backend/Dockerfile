@@ -18,5 +18,6 @@ ENV TYPEORM_ENTITIES=./src/modules/**/*.entity.ts
 # RUN npm run migrations
 # CMD ["npm", "start"]
 
-CMD npm run migrations && npm start
+RUN npm run migrations 
+CMD npm start
 
