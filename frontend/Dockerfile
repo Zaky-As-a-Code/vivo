@@ -4,7 +4,7 @@ RUN git clone https://github.com/Zaky-As-a-Code/vivo.git
 WORKDIR  /vivo/frontend
 #RUN npm install
 #RUN npm run build
-COPY . .
+#COPY . .
 
 FROM nginx:latest
 WORKDIR /usr/share/nginx/html
