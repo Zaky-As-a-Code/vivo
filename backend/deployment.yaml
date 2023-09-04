@@ -6,15 +6,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-backend
+      app: node-be
   template:
     metadata:
       labels:
-        app: node-backend
+        app: node-be
     spec:
       containers:
       - name: backend
-        image: omarkamals/backend
+        image: zakydockerized/zaky-repo:be
         imagePullPolicy: Always
         ports:
         - containerPort: 3030
