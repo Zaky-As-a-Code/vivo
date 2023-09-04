@@ -6,7 +6,7 @@ COPY . .
 
 
 ENV TYPEORM_CONNECTION=postgres
-ENV TYPEORM_HOST=db
+ENV TYPEORM_HOST=postgres-service.default.svc.cluster.local
 ENV TYPEORM_PORT=5432
 ENV TYPEORM_USERNAME=postgres
 ENV TYPEORM_PASSWORD=password
