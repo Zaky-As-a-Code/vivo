@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: zakydockerized/zaky-repo:frontend
+        image: zakydockerized/zaky-repo:backend
         imagePullPolicy: Always
         ports:
         - containerPort: 3030
