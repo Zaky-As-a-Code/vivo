@@ -24,6 +24,8 @@ spec:
         env:
         - name: POSTGRES_PASSWORD
           value: password
+        ports:
+        - containerPort: 5432
         volumeMounts:
         - name: data
           mountPath: /var/lib/postgresql/data
@@ -32,3 +34,20 @@ spec:
         emptyDir: {}
 
 kubectl create -f db.yml
+
+
+db-svc.yml #definition-file for postgress internal communication service
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  selector:
+    app: postgres
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
+
+kubectl create -f db-svc.yml
