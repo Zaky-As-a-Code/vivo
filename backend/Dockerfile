@@ -6,7 +6,7 @@ COPY . .
 
 
 ENV TYPEORM_CONNECTION=postgres
-ENV TYPEORM_HOST=postgres-service
+ENV TYPEORM_HOST=postgres-service.default.svc.cluster.local
 ENV TYPEORM_USERNAME=postgres
 ENV TYPEORM_PASSWORD=password
 ENV TYPEORM_DATABASE=glee
@@ -16,7 +16,6 @@ ENV TYPEORM_ENTITIES=./src/modules/**/*.entity.ts
 #RUN npm run build
 # RUN npm run migrations
 # CMD ["npm", "start"]
-
-RUN npm run migrations 
-CMD npm start
+ 
+CMD npm run migrations && npm start
 
