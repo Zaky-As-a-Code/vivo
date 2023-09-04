@@ -13,8 +13,8 @@ ENV TYPEORM_PASSWORD=password
 ENV TYPEORM_DATABASE=glee
 ENV TYPEORM_MIGRATIONS=./src/migrations/*.ts
 ENV TYPEORM_ENTITIES=./src/modules/**/*.entity.ts
-RUN npm install
-RUN npm run build
+#RUN npm install
+#RUN npm run build
 # RUN npm run migrations
 # CMD ["npm", "start"]
 
